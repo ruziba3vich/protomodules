@@ -6144,17 +6144,19 @@ public final class Users {
       "_id\030\001 \001(\t\"%\n\022DeleteUserResponse\022\017\n\007messa" +
       "ge\030\001 \001(\t\"\024\n\022GetAllUsersRequest\"B\n\023GetAll" +
       "UsersResponse\022+\n\005users\030\001 \003(\0132\034.com.prodo" +
-      "nik.genprotos.User2\365\002\n\013UserService\022S\n\013Ge" +
+      "nik.genprotos.User2\335\003\n\013UserService\022S\n\013Ge" +
       "tUserById\022&.com.prodonik.genprotos.GetUs" +
       "erRequest\032\034.com.prodonik.genprotos.User\022" +
-      "U\n\nCreateUser\022).com.prodonik.genprotos.C" +
-      "reateUserRequest\032\034.com.prodonik.genproto" +
-      "s.User\022U\n\nUpdateUser\022).com.prodonik.genp" +
-      "rotos.UpdateUserRequest\032\034.com.prodonik.g" +
-      "enprotos.User\022c\n\nDeleteUser\022).com.prodon" +
-      "ik.genprotos.DeleteUserRequest\032*.com.pro" +
-      "donik.genprotos.DeleteUserResponseb\006prot" +
-      "o3"
+      "f\n\013GetAllUsers\022*.com.prodonik.genprotos." +
+      "GetAllUsersRequest\032+.com.prodonik.genpro" +
+      "tos.GetAllUsersResponse\022U\n\nCreateUser\022)." +
+      "com.prodonik.genprotos.CreateUserRequest" +
+      "\032\034.com.prodonik.genprotos.User\022U\n\nUpdate" +
+      "User\022).com.prodonik.genprotos.UpdateUser" +
+      "Request\032\034.com.prodonik.genprotos.User\022c\n" +
+      "\nDeleteUser\022).com.prodonik.genprotos.Del" +
+      "eteUserRequest\032*.com.prodonik.genprotos." +
+      "DeleteUserResponseb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

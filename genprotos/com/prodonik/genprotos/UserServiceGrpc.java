@@ -46,6 +46,37 @@ public final class UserServiceGrpc {
     return getGetUserByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.prodonik.genprotos.Users.GetAllUsersRequest,
+      com.prodonik.genprotos.Users.GetAllUsersResponse> getGetAllUsersMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAllUsers",
+      requestType = com.prodonik.genprotos.Users.GetAllUsersRequest.class,
+      responseType = com.prodonik.genprotos.Users.GetAllUsersResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.prodonik.genprotos.Users.GetAllUsersRequest,
+      com.prodonik.genprotos.Users.GetAllUsersResponse> getGetAllUsersMethod() {
+    io.grpc.MethodDescriptor<com.prodonik.genprotos.Users.GetAllUsersRequest, com.prodonik.genprotos.Users.GetAllUsersResponse> getGetAllUsersMethod;
+    if ((getGetAllUsersMethod = UserServiceGrpc.getGetAllUsersMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetAllUsersMethod = UserServiceGrpc.getGetAllUsersMethod) == null) {
+          UserServiceGrpc.getGetAllUsersMethod = getGetAllUsersMethod =
+              io.grpc.MethodDescriptor.<com.prodonik.genprotos.Users.GetAllUsersRequest, com.prodonik.genprotos.Users.GetAllUsersResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAllUsers"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.prodonik.genprotos.Users.GetAllUsersRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.prodonik.genprotos.Users.GetAllUsersResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("GetAllUsers"))
+              .build();
+        }
+      }
+    }
+    return getGetAllUsersMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.prodonik.genprotos.Users.CreateUserRequest,
       com.prodonik.genprotos.Users.User> getCreateUserMethod;
 
@@ -196,6 +227,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void getAllUsers(com.prodonik.genprotos.Users.GetAllUsersRequest request,
+        io.grpc.stub.StreamObserver<com.prodonik.genprotos.Users.GetAllUsersResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllUsersMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void createUser(com.prodonik.genprotos.Users.CreateUserRequest request,
         io.grpc.stub.StreamObserver<com.prodonik.genprotos.Users.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
@@ -224,6 +262,13 @@ public final class UserServiceGrpc {
                 com.prodonik.genprotos.Users.GetUserRequest,
                 com.prodonik.genprotos.Users.User>(
                   this, METHODID_GET_USER_BY_ID)))
+          .addMethod(
+            getGetAllUsersMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.prodonik.genprotos.Users.GetAllUsersRequest,
+                com.prodonik.genprotos.Users.GetAllUsersResponse>(
+                  this, METHODID_GET_ALL_USERS)))
           .addMethod(
             getCreateUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -269,6 +314,14 @@ public final class UserServiceGrpc {
         io.grpc.stub.StreamObserver<com.prodonik.genprotos.Users.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetUserByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getAllUsers(com.prodonik.genprotos.Users.GetAllUsersRequest request,
+        io.grpc.stub.StreamObserver<com.prodonik.genprotos.Users.GetAllUsersResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAllUsersMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -319,6 +372,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.prodonik.genprotos.Users.GetAllUsersResponse getAllUsers(com.prodonik.genprotos.Users.GetAllUsersRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAllUsersMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.prodonik.genprotos.Users.User createUser(com.prodonik.genprotos.Users.CreateUserRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateUserMethod(), getCallOptions(), request);
@@ -363,6 +423,14 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.prodonik.genprotos.Users.GetAllUsersResponse> getAllUsers(
+        com.prodonik.genprotos.Users.GetAllUsersRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAllUsersMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.prodonik.genprotos.Users.User> createUser(
         com.prodonik.genprotos.Users.CreateUserRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -387,9 +455,10 @@ public final class UserServiceGrpc {
   }
 
   private static final int METHODID_GET_USER_BY_ID = 0;
-  private static final int METHODID_CREATE_USER = 1;
-  private static final int METHODID_UPDATE_USER = 2;
-  private static final int METHODID_DELETE_USER = 3;
+  private static final int METHODID_GET_ALL_USERS = 1;
+  private static final int METHODID_CREATE_USER = 2;
+  private static final int METHODID_UPDATE_USER = 3;
+  private static final int METHODID_DELETE_USER = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -411,6 +480,10 @@ public final class UserServiceGrpc {
         case METHODID_GET_USER_BY_ID:
           serviceImpl.getUserById((com.prodonik.genprotos.Users.GetUserRequest) request,
               (io.grpc.stub.StreamObserver<com.prodonik.genprotos.Users.User>) responseObserver);
+          break;
+        case METHODID_GET_ALL_USERS:
+          serviceImpl.getAllUsers((com.prodonik.genprotos.Users.GetAllUsersRequest) request,
+              (io.grpc.stub.StreamObserver<com.prodonik.genprotos.Users.GetAllUsersResponse>) responseObserver);
           break;
         case METHODID_CREATE_USER:
           serviceImpl.createUser((com.prodonik.genprotos.Users.CreateUserRequest) request,
@@ -486,6 +559,7 @@ public final class UserServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getGetUserByIdMethod())
+              .addMethod(getGetAllUsersMethod())
               .addMethod(getCreateUserMethod())
               .addMethod(getUpdateUserMethod())
               .addMethod(getDeleteUserMethod())

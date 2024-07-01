@@ -45,6 +45,7 @@ message GetAllUsersResponse {
 
 service UserService {
     rpc GetUserById(GetUserRequest) returns (User);
+    rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
     rpc CreateUser(CreateUserRequest) returns (User);
     rpc UpdateUser(UpdateUserRequest) returns (User);
     rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
