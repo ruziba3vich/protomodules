@@ -7,15 +7,25 @@ import "google/protobuf/empty.proto";
 message User {
     string id = 1;
     string username = 2;
-    string email = 3;
-    repeated Address addresses = 4;
+    string password = 3;
+    string email = 4;
+    string first_name = 5;
+    string last_name = 6;
+    repeated Address addresses = 7;
+    Role role = 8;
 }
 
 message Address {
-    string street = 1;
-    string city = 2;
-    string country = 3;
+    string id = 1;
+    string street_address = 2;
+    string city = 3;
     string postal_code = 4;
+    string country = 5;
+}
+
+message Role {
+    string id = 1;
+    string name = 2;
 }
 
 message GetUserRequest {
