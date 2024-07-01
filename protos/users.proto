@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package com.prodonik.genprotos;
 
+import "google/protobuf/empty.proto";
+
 message User {
     string id = 1;
     string username = 2;
@@ -37,15 +39,13 @@ message DeleteUserResponse {
     string message = 1;
 }
 
-message GetAllUsersRequest {}
-
 message GetAllUsersResponse {
     repeated User users = 1;
 }
 
 service UserService {
     rpc GetUserById(GetUserRequest) returns (User);
-    rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
+    rpc GetAllUsers(google.protobuf.Empty) returns (GetAllUsersResponse);
     rpc CreateUser(CreateUserRequest) returns (User);
     rpc UpdateUser(UpdateUserRequest) returns (User);
     rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
