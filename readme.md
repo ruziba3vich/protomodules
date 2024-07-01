@@ -1,1 +1,1 @@
-submodule for users service in e-commerce platform
+submodule for users service in e-commerce platform.
