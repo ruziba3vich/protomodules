@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package com.prodonik.genprotos;
+
+import "google/protobuf/empty.proto";
+
+message User {
+    string id = 1;
+    string username = 2;
+    string password = 3;
+    string email = 4;
+    string first_name = 5;
+    string last_name = 6;
+    Role role = 7;
+}
+
+message Role {
+    string id = 1;
+    string name = 2;
+}
+
+message GetUserRequest {
+    string user_id = 1;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message UpdateUserRequest {
+    string user_id = 1;
+    User updated_user = 2;
+}
+
+message DeleteUserRequest {
+    string user_id = 1;
+}
+
+message DeleteUserResponse {
+    string message = 1;
+}
+
+message GetAllUsersResponse {
+    repeated User users = 1;
+}
+
+service UserService {
+    rpc GetUserById(GetUserRequest) returns (User);
+    rpc GetAllUsers(google.protobuf.Empty) returns (GetAllUsersResponse);
+    rpc CreateUser(CreateUserRequest) returns (User);
+    rpc UpdateUser(UpdateUserRequest) returns (User);
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+}
