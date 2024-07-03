@@ -51,7 +51,7 @@ message UpdateUserBalanceRequest {
 }
 
 message UpdateUserBalanceResponse {
-    int64 newBalance = 1;
+    User user = 1;
 }
 
 service UserService {
