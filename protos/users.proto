@@ -51,7 +51,7 @@ message UpdateUserBalanceRequest {
 }
 
 message UpdateUserBalanceResponse {
-    User user = 1;
+    string message = 1;
 }
 
 service UserService {
