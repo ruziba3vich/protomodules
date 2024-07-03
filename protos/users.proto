@@ -47,6 +47,7 @@ message GetAllUsersResponse {
 
 message UpdateUserBalanceRequest {
     int64 newBalance = 1;
+    string user_id = 2;
 }
 
 message UpdateUserBalanceResponse {
